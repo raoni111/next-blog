@@ -1,4 +1,5 @@
 import { PostProtocol } from '../../domain/post/post';
+import removeHtml from '../../utils/removeHtml';
 import Header from '../../components/header';
 import MainContent from '../../components/mainContent';
 import Conteiner from './style';
@@ -8,6 +9,8 @@ import PostCover from '../../components/PostCover';
 import PostDetails from '../../components/postDetails';
 import PostContent from '../../components/postContent';
 import Comments from '../../components/comments';
+import Head from 'next/head';
+import { SITE_NAME } from '../../config/config';
 
 export interface PostProps {
   post: PostProtocol;
@@ -17,6 +20,12 @@ export interface PostProps {
 export default function Post({ post, content }: PostProps): JSX.Element {
   return (
     <Conteiner>
+      <Head>
+        <title>
+          {post.attributes.title} - {SITE_NAME}
+        </title>
+        <meta name="description" content={removeHtml(content)} />
+      </Head>
       <Header />
       <MainContent>
         <Heading>{post.attributes.title}</Heading>

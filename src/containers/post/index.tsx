@@ -15,7 +15,6 @@ export interface PostProps {
 }
 
 export default function Post({ post, content }: PostProps): JSX.Element {
-  console.log(post.attributes.author.data.attributes.name);
   return (
     <Conteiner>
       <Header />

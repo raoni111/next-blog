@@ -6,6 +6,10 @@ const Conteiner = styled.div`
   font-size: ${theme.font.sizes.small};
   margin: ${theme.spacings.medium};
   font-style: italic;
+  a {
+    text-decoration: none;
+    margin-left: 0.5rem;
+  }
 `;
 
 export default Conteiner;

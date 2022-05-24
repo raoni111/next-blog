@@ -1,5 +1,6 @@
 import Conteiner from './style';
 import Date from '../date';
+import Link from 'next/link';
 
 export interface PostDetailsProps {
   date: string;
@@ -14,7 +15,10 @@ export default function PostDetails({
 }: PostDetailsProps): JSX.Element {
   return (
     <Conteiner>
-      publicado em <Date date={date} /> por {author} em {category}
+      publicado em <Date date={date} /> por {author} em
+      <Link href="/categories/[category]" as={`/categories/${category}`}>
+        <a href="">{category}</a>
+      </Link>
     </Conteiner>
   );
 }

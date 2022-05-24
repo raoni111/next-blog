@@ -9,13 +9,16 @@ import { Conteiner } from './style';
 
 export type HomeProps = {
   posts: PostProtocol[];
+  category?: string;
 };
 
-export default function HomePage({ posts }: HomeProps): JSX.Element {
+export default function HomePage({ posts, category }: HomeProps): JSX.Element {
   return (
     <>
       <Head>
-        <title>{SITE_NAME}</title>
+        <title>
+          {SITE_NAME} {category && `- ${category}`}
+        </title>
         <meta name="description" content="blog de informações gerais raoni" />
       </Head>
       <Header />
